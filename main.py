@@ -31,13 +31,19 @@ fake = Faker()
 
 business_cards = []
 
-for x in range(5):
-    card = BusinessCard(first_name=fake.first_name(),
-    last_name=fake.last_name(),
-    occupation=fake.job(),
-    email=fake.email())
-    business_cards.append(card)
+# def create_contacts(card_type, qty):
+#     match card_type:
+#         case: card_type == 'base'
 
-for card in business_cards:
-    card.contact()
-    print(f"{card.fullname_length}")
+
+
+# for x in range(5):
+#     card = BusinessCard(first_name=fake.first_name(),
+#     last_name=fake.last_name(),
+#     occupation=fake.job(),
+#     email=fake.email())
+#     business_cards.append(card)
+
+# for card in business_cards:
+#     card.contact()
+#     print(f"{card.fullname_length}")
