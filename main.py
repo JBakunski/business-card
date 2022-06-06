@@ -8,9 +8,19 @@ class BusinessCard:
         self.occupation = occupation
         self.email = email
 
+        self._fullname_length = ''
+
 
     def display_info(self):
         print(f"Imię: {self.first_name}, Nazwisko: {self.last_name}, Stanowisko: {self.occupation}, Adres email: {self.email}")
+    
+    def contact(self):
+        print(f"Kontaktuje się z {self.first_name}, {self.last_name}, {self.occupation}, {self.email}")
+    
+    @property
+    def fullname_length(self):
+        return f"{len(self.first_name)}_{len(self.last_name)}"
+
     
 
 fake = Faker()
@@ -25,4 +35,5 @@ for x in range(5):
     business_cards.append(card)
 
 for card in business_cards:
-    card.display_info()
+    card.contact()
+    print(f"{card.fullname_length}")
