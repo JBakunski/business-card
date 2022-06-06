@@ -32,15 +32,6 @@ fake = Faker()
 base_contacts = []
 business_contacts =[]
 
-def create_contacts(contact_type, qty):
-    match contact_type:
-        case 'base':
-            create_base_contact(qty)
-            display_base_contact_info(base_contacts)
-        case 'business':
-            create_business_contact(qty)
-            display_base_contact_info(business_contacts)
-
 
 def create_base_contact(quantity):
     for i in range(quantity):
@@ -61,14 +52,24 @@ def create_business_contact(quantity):
             email = fake.email(),
             occupation= fake.job(),
             company_name= fake.company(),
-            business_phone=fake.phone(),
+            business_phone=fake.phone_number(),
         )
         business_contacts.append(contact)
 
 def display_base_contact_info(contacts):
     for c in contacts:
         c.contact()
-        print(f"Długość nazwy {c.label_length()} znaki.")
+        print(f"Długość nazwy {c.label_length} znaki.")
 
 
-create_contacts('base', 10)
+def create_contacts(contact_type, qty):
+    match contact_type:
+        case 'base':
+            create_base_contact(qty)
+            display_base_contact_info(base_contacts)
+            print("from match")
+        case 'business':
+            create_business_contact(qty)
+            display_base_contact_info(business_contacts)
+
+create_contacts('base', 3)
