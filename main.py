@@ -1,6 +1,6 @@
 import sys
 from faker import Faker
-from contactModels import BaseContact, BusinessContact
+from contact_models import BaseContact, BusinessContact
 
 
 fake = Faker()
